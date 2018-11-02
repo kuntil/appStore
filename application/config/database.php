@@ -72,14 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 //Add this to fetch the CLEARDB_DATABASE_URL
+$active_group = 'default';
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => $url["us-cdbr-iron-east-01.cleardb.net"],
-	'username' => $url["b69bf3e01ab7dd"],
-	'password' => $url["6ded381d"],
-	'database' => substr($url["heroku_21a51105952adcd"], 1),
+	'hostname' => $url["host"],
+	'username' => $url["user"],
+	'password' => $url["pass"],
+	'database' => substr($url["path"], 1),
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -96,7 +97,7 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 /*
-$active_group = 'default';
+
 $query_builder = TRUE;
 
 $db['default'] = array(
