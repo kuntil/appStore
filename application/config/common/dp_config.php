@@ -16,7 +16,7 @@ $host_dev = 'CI-AdminLTE';
 // Fill in the domain name here when your project is online.
 // Example : www.johndoe.com
 //           johndoe.com
-$host_prod = 'www.app-natural.herokuapp.com';
+$host_prod = 'app-natural.herokuapp.com';
 
 // WARNING: Do not modify the lines below
 $domain = (in_array($_SERVER['HTTP_HOST'], $config['host_dev'], TRUE)) ? $_SERVER['HTTP_HOST'] . '/' . $host_dev : $host_prod;
