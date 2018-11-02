@@ -23,7 +23,7 @@ $domain = (in_array($_SERVER['HTTP_HOST'], $config['host_dev'], TRUE)) ? $_SERVE
 
 //$config['base_url'] = ( ! empty($ ['HTTPS'])) ? 'https://' . $domain : 'http://' . $domain;
 
-$config['base_url']="https://app-natural.herokuapp.com/"
+$config['base_url']="https://app-natural.herokuapp.com/";
 
 /*
 |--------------------------------------------------------------------------
