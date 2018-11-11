@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Faktur Pembelian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Transaksi Faktur Pembelian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Laporan Supplier & Pembelian</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('supplier'); ?>">Supplier</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/supplier'); ?>">Supplier</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Penawaran Pembelian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Kode Barang Supplier</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Pelunasan Faktur Pembelian</a></li>
