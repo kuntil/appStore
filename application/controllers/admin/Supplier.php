@@ -1,5 +1,5 @@
 <?php
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Supplier extends Admin_Controller {
 
     public function __construct()
@@ -19,7 +19,7 @@ class Supplier extends Admin_Controller {
             redirect('auth/login', 'refresh');
         }
         $this->data['data']=array();
-        this->template->admin_render('admin/supplier/index', $this->data)
+        $this->template->admin_render('admin/supplier/index', $this->data)
     }
 
     public function supplier_page()
