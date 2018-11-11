@@ -7,17 +7,17 @@ class Supplier extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->helper('number');
         $this->load->model('admin/Supplier_model');
-        if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
-        {
-            redirect('auth/login', 'refresh');
-        }ss
+        
     }
 
 
 	public function index()
 	{
+        if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
+        {
+            redirect('auth/login', 'refresh');
+        }
         $this->data['data']=array();
         this->template->admin_render('admin/supplier/index', $this->data)
     }
