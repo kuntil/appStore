@@ -24,16 +24,21 @@ class Supplier extends Admin_Controller {
 
     public function supplier_page()
      {
+        /* Title Page */
+        $this->page_title->push(lang('menu_dashboard'));
+        $this->data['pagetitle'] = $this->page_title->show();
 
-          // Datatables Variables
-          $draw = intval($this->input->get("draw"));
-          $start = intval($this->input->get("start"));
-          $length = intval($this->input->get("length"));
+        /* Breadcrumbs */
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
+        // Datatables Variables
+        $draw = intval($this->input->get("draw"));
+        $start = intval($this->input->get("start"));
+        $length = intval($this->input->get("length"));
 
-          $books = $this->supplier_page->get_suppliers();
+        $books = $this->supplier_page->get_suppliers();
 
-          $data = array();
+        $data = array();
 
           foreach($books->result() as $r) {
 
@@ -47,9 +52,9 @@ class Supplier extends Admin_Controller {
 
           $output = array(
                "draw" => $draw,
-                 "recordsTotal" => $books->num_rows(),
-                 "recordsFiltered" => $books->num_rows(),
-                 "data" => $data
+               "recordsTotal" => $books->num_rows(),
+               "recordsFiltered" => $books->num_rows(),
+               "data" => $data
             );
           echo json_encode($output);
           exit();
