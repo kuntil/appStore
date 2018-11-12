@@ -43,7 +43,7 @@
                 </section>
             </div>
 
-<script src="<?php echo base_url($frameworks_dir.'/jquery/jquery.min.js')?>"></script>
+<script src="<?php echo base_url($frameworks_dir.'/jquery/jquery-2.2.3.js')?>"></script>
 <script src="<?php echo base_url($frameworks_dir.'/datatables/js/jquery.dataTables.min.js')?>"></script>
  
  
