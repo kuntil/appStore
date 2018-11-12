@@ -27,7 +27,7 @@
                         
                                     <tfoot>
                                         <tr>
-                                            <<th>No</th>
+                                            <th>No</th>
                                             <th>Kode Supplier</th>
                                             <th>Nama Supplier</th>
                                             <th>Alamat</th>
