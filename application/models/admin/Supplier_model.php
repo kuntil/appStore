@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Supplier_model extends CI_Model {
 
     var $table = 'supplier_tbl';
-    var $column_order = array(null, 'supplier_id','supplier_name','address','telps'); //set column field database for datatable orderable
+    var $column_order = array(null, 'supplier_id','supplier_name','address','telp'); //set column field database for datatable orderable
     var $column_search = array('supplier_id','supplier_name','address','telps'); //set column field database for datatable searchable 
     var $order = array('supplier_id' => 'asc'); // default order 
 
