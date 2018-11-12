@@ -9,11 +9,9 @@
                         <div class="col-md-12">
                              <div class="box">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">xxx</h3>
+                                    <h3 class="box-title">List Supplier</h3>
                                 </div>
                                 <div class="box-body">
-
-<h2>List Supplier</h2>
                                     <table class="table table-bordered table-striped table-hover" id="supplier-table">
                                         <thead>
                                             <tr>
