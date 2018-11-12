@@ -18,7 +18,7 @@
                                                 <th>KD. Supplier</th>
                                                 <th>Nama Supplier</th>
                                                 <th>Alamat</th>
-                                                <th>telp</th>
+                                                <th>Telp</th>
                                             </tr>
                                         </thead>
                                         <tbody>

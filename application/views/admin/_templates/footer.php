@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function() {
     $('#supplier-table').DataTable({
         "ajax": {
-            url : "<?php echo site_url("supplier/supplier_page") ?>",
+            url : "<?php echo site_url("admin/supplier/supplier_page") ?>",
             type : 'GET'
         },
     });

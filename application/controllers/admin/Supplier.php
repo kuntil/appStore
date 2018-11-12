@@ -35,7 +35,7 @@ class Supplier extends Admin_Controller {
         $start = intval($this->input->get("start"));
         $length = intval($this->input->get("length"));
 
-        $books = $this->supplier_page->get_suppliers();
+        $books = $this->supplier_model->get_suppliers();
 
         $data = array();
 
