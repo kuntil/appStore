@@ -7,7 +7,7 @@ class Supplier extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->model('admin/Supplier_model');
+        $this->load->model('admin/Supplier_model','supplier');
         
     }
 
@@ -28,34 +28,30 @@ class Supplier extends Admin_Controller {
         $this->template->admin_render('admin/supplier/index', $this->data);
     }
 
-    public function supplier_page()
-     {
-        // Datatables Variables
-        $draw = intval($this->input->get("draw"));
-        $start = intval($this->input->get("start"));
-        $length = intval($this->input->get("length"));
-
-        $books = $this->Supplier_model->get_suppliers();
-
+    public function ajax_list()
+    {
+        $list = $this->supplier->get_datatables();
         $data = array();
-
-          foreach($books->result() as $r) {
-
-               $data[] = array(
-                    $r->supplier_id,
-                    $r->supplier_name,
-                    $r->addres,
-                    $r->telp
-               );
-          }
-
-          $output = array(
-               "draw" => $draw,
-               "recordsTotal" => $books->num_rows(),
-               "recordsFiltered" => $books->num_rows(),
-               "data" => $data
-            );
-          echo json_encode($output);
-          exit();
-     }
+        $no = $_POST['start'];
+        foreach ($list as $suppliers) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $suppliers->supplier_id;
+            $row[] = $suppliers->supplier_name;
+            $row[] = $suppliers->adddres;
+            $row[] = $suppliers->telp;
+ 
+            $data[] = $row;
+        }
+ 
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->customers->count_all(),
+                        "recordsFiltered" => $this->customers->count_filtered(),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+    }
 }

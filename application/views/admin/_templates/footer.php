@@ -10,19 +10,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <strong><?php echo lang('footer_copyright'); ?> &copy; 2014-<?php echo date('Y'); ?> <a href="http://almsaeedstudio.com" target="_blank">Almsaeed Studio</a> &amp; <a href="https://domprojects.com" target="_blank">domProjects</a>.</strong> <?php echo lang('footer_all_rights_reserved'); ?>.
             </footer>
         </div>
-<!-- Start Script for datatable -->
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#supplier-table').DataTable({
-        "ajax": {
-            url : "<?php echo site_url("admin/supplier/supplier_page") ?>",
-            type : 'GET'
-        },
-    });
-});
-</script>
-<!-- end -->
-
         <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script>
         <script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url($plugins_dir . '/slimscroll/slimscroll.min.js'); ?>"></script>
