@@ -15,7 +15,7 @@ class Supplier_model extends CI_Model {
     }
 
     public function _get_datatables_query(){    
-        $this->db->get('supplier_tbl');
+        $this->db->get($this->table);
         $i=0;
 
         foreach ($this->column_search as $item) // loop column 
@@ -44,7 +44,8 @@ class Supplier_model extends CI_Model {
             $this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
         } 
         else if(isset($this->order))
-        {
+        {   
+            $this->db->get($this->table);
             $order = $this->order;
             $this->db->order_by(key($order), $order[key($order)]);
         }
