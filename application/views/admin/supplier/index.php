@@ -43,11 +43,8 @@
                 </section>
             </div>
 
-<script
-  src="https://code.jquery.com/jquery-2.2.3.min.js"
-  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
-  crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js')?>"></script>
+<script src="<?php echo base_url($frameworks_dir.'/jquery/jquery-2.2.3.min.js')?>"></script>
+<script src="<?php echo base_url($frameworks_dir.'/datatables/js/jquery.dataTables.min.js')?>"></script>
  
  
 <script type="text/javascript">
