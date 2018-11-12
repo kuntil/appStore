@@ -18,19 +18,18 @@ class Supplier extends Admin_Controller {
         {
             redirect('auth/login', 'refresh');
         }
-        $this->data['data']=array();
-        $this->template->admin_render('admin/supplier/index', $this->data);
-    }
-
-    public function supplier_page()
-     {
         /* Title Page */
         $this->page_title->push(lang('menu_dashboard'));
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $this->data['data']=array();
+        $this->template->admin_render('admin/supplier/index', $this->data);
+    }
 
+    public function supplier_page()
+     {
         // Datatables Variables
         $draw = intval($this->input->get("draw"));
         $start = intval($this->input->get("start"));
