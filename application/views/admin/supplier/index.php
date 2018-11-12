@@ -13,15 +13,7 @@
                                 </div>
                                 <div class="box-body">
 
-<h2>Platform</h2>
-<?php echo $platform; ?>
-
-<h2>Version</h2>
-<?php echo $version; ?>
-
-
-
-<h2>List Tables</h2>
+<h2>List Supplier</h2>
                                     <table class="table table-bordered table-striped table-hover" id="supplier-table">
                                         <thead>
                                             <tr>
