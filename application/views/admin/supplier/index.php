@@ -43,12 +43,8 @@
                 </section>
             </div>
 
-<script src="<?php echo base_url($frameworks_dir.'/jquery/jquery-2.2.3.js')?>"></script>
-<script src="<?php echo base_url($frameworks_dir.'/datatables/js/jquery.dataTables.min.js')?>"></script>
- 
- 
 <script type="text/javascript">
- 
+$.noConflict();
 var table;
  
 $(document).ready(function() {

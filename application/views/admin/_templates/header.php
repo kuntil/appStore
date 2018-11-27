@@ -7,6 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="<?php echo $charset; ?>">
         <title><?php echo $title; ?></title>
+<script src="<?php echo base_url($frameworks_dir.'/jquery/jquery-2.2.3.js')?>"></script>
+<script src="<?php echo base_url($frameworks_dir.'/datatables/js/jquery.dataTables.min.js')?>"></script>
 <?php if ($mobile === FALSE): ?>
         <!--[if IE 8]>
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
