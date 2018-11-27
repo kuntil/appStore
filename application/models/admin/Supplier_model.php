@@ -3,10 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Supplier_model extends CI_Model {
 
-    private String $table = 'supplier_tbl';
-    private String $column_order = array(null, 'supplier_id','supplier_name','address','telp'); //set column field database for datatable orderable
-    private String $column_search = array('supplier_id','supplier_name','address','telps'); //set column field database for datatable searchable 
-    private String $order = array('supplier_id' => 'asc'); // default order 
+    var $table = 'supplier_tbl';
+    var $column_order = array(null, 'supplier_id','supplier_name','address','telp'); //set column field database for datatable orderable
+    var $column_search = array('supplier_id','supplier_name','address','telps'); //set column field database for datatable searchable 
+    var String $order = array('supplier_id' => 'asc'); // default order 
 
     public function __construct()
     {
