@@ -73,6 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //Add this to fetch the CLEARDB_DATABASE_URL
 $active_group = 'default';
+
+/* Server Development 
+*/
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $db['default'] = array(
@@ -96,8 +99,8 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-/*
 
+/*
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -121,4 +124,5 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-*/ 
+*/
+

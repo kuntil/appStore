@@ -39,3 +39,8 @@ else
 
     </body>
 </html>
+
+<div class="box-footer">
+                <button type="submit" class="btn btn-default">Tambah Supplier</button>
+                <button type="submit" class="btn btn-info pull-right">Cancel</button>
+              </div>

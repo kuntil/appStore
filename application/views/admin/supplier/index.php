@@ -12,7 +12,8 @@
                                     <h3 class="box-title">List Supplier</h3>
                                 </div>
                                 <div class="box-body">
-                                <table id="table" class="display" cellspacing="0" width="100%">
+                                
+                                <table id="tableSupplier" class="table table-bordered table-striped" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -37,21 +38,28 @@
                                 </table>
 
                                 </div>
+                                <div class="box-footer">
+                                <button type="submit" class="btn btn-info">Tambah Supplier</button>
+                                </div>
                             </div>
+                            
                          </div>
+                         
                     </div>
                 </section>
+
+                
+                
             </div>
 
  
 <script type="text/javascript">
-$.noConflict();
+// $.noConflict();
 var table;
-(function($){
-    $(document).ready(function() {
+$(document).ready(function() {
  
  //datatables
- table = $('#table').DataTable({ 
+ table = $('#tableSupplier').DataTable({ 
 
      "processing": true, //Feature control the processing indicator.
      "serverSide": true, //Feature control DataTables' server-side processing mode.
@@ -74,6 +82,5 @@ var table;
  });
 
 });
-})
 
 </script>

@@ -39,7 +39,7 @@ class Supplier extends Admin_Controller {
             $row[] = $no;
             $row[] = $suppliers->supplier_id;
             $row[] = $suppliers->supplier_name;
-            $row[] = $suppliers->adddres;
+            $row[] = $suppliers->address;
             $row[] = $suppliers->telp;
  
             $data[] = $row;
@@ -47,8 +47,8 @@ class Supplier extends Admin_Controller {
  
         $output = array(
                         "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->customers->count_all(),
-                        "recordsFiltered" => $this->customers->count_filtered(),
+                        "recordsTotal" => $this->supplier->count_all(),
+                        "recordsFiltered" => $this->supplier->count_filtered(),
                         "data" => $data,
                 );
         //output to json format

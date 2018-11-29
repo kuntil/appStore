@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Transfer Antar Gudang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Penyesuaian Persedian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Laporan Persedian</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Barang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/item'); ?>">Barang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Kategori Barang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Gudang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Unit Satuan</a></li>
