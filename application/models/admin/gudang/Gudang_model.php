@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Gudang_model extends CI_Model {
 
     var $table = 'gudang_tbl';
-    var $column_order = array(null, 'gudang_id','gudang_name','gudang_desc','status'); //set column field database for datatable orderable
-    var $column_search = array('gudang_name','gudang_desc','status'); //set column field database for datatable searchable 
+    var $column_order = array(null, 'gudang_id','gudang_name','gudang_desc','status','qversion','qid'); //set column field database for datatable orderable
+    var $column_search = array('gudang_name','gudang_desc','status','qversion','qid'); //set column field database for datatable searchable 
     var $order = array('gudang_name' => 'asc'); // default order 
 
     public function __construct()

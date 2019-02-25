@@ -7,7 +7,7 @@ class Merk_barang extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->model('admin/gudang/MerekBarang_model','item');
+        $this->load->model('admin/gudang/MerkBarang_model','item');
         
     }
 

@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MerkBarang_model extends CI_Model {
 
     var $table = 'merk_tbl';
-    var $column_order = array(null, 'merk_id','merk_name','merk_desc','status'); //set column field database for datatable orderable
-    var $column_search = array('merk_name','merk_desc','status'); //set column field database for datatable searchable 
+    var $column_order = array(null, 'merk_id','merk_name','merk_desc','status','qversion','qid'); //set column field database for datatable orderable
+    var $column_search = array('merk_name','merk_desc','status','qversion','qid'); //set column field database for datatable searchable 
     var $order = array('merk_name' => 'asc'); // default order 
 
     public function __construct()
