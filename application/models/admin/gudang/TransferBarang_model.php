@@ -1,17 +1,28 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Supplier_model extends CI_Model {
+class PenyesuaianBarang_model extends CI_Model {
 
-    var $table = 'supplier_tbl';
-    var $column_order = array(null, 'supplier_id','supplier_name','address','telp'); //set column field database for datatable orderable
-    var $column_search = array('supplier_id','supplier_name','address','telp'); //set column field database for datatable searchable 
-    var $order = array('supplier_id' => 'asc'); // default order 
+    var $table = 'transfer_barang_tbl';
+    var $column_order = array(null, 'seq_no','gudang_id','gudang_id_to','item_code','qty','tgl_transfer','status'); //set column field database for datatable orderable
+    var $column_search = array('seq_no','gudang_id','gudang_id_to','item_code','qty','tgl_transfer','status'); //set column field database for datatable searchable 
+    var $order = array('tgl_transfer' => 'asc'); // default order 
 
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
+    }
+
+    public function add($data){
+        $res = $this->db->insert($this->table,$data);
+        if(!$res){
+            $ret['ErrorMessage'] = $this->db->_error_message();
+            $ret['ErrorNumber'] = $this->db->_error_number();
+            return $message = "DB Error: (".$ret['ErrorNumber'].") ".$ret['ErrorMessage'];
+        }else{
+            return $message = "Input Succesfully";
+        }
     }
 
     public function _get_datatables_query(){    

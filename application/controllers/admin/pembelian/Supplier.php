@@ -7,7 +7,7 @@ class Supplier extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->model('admin/Supplier_model','supplier');
+        $this->load->model('admin/pembelian/Supplier_model','supplier');
         
     }
 
@@ -25,8 +25,28 @@ class Supplier extends Admin_Controller {
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['data']=array();
-        $this->template->admin_render('admin/supplier/index', $this->data);
+        $this->template->admin_render('admin/pembelian/supplier/index', $this->data);
     }
+
+    public function add(){
+        
+        $data= array(
+            'supplier_id' => $this->input->post('supplier_id'),
+            'supplier_name' => $this->input->post('supplier_name'),
+            'address'=>$this->input->post('address'),
+            'telp'=>$this->input->post('telp')
+        );
+
+        $res = $this->item->add($data);
+        if(!$res){
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/item");
+        }else{
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/item");
+        }
+    }
+
 
     public function ajax_list()
     {

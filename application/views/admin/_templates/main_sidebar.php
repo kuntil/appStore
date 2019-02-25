@@ -92,15 +92,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Transfer Antar Gudang</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Penyesuaian Persedian</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/transfer_gudang'); ?>">Transfer Antar Gudang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/penyesuain_barang'); ?>">Penyesuaian Persedian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Laporan Persedian</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/item'); ?>">Barang</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Kategori Barang</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Gudang</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Unit Satuan</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/item'); ?>">Barang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/category_barang'); ?>">Kategori Barang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/gudang'); ?>">Gudang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/unit_satuan'); ?>">Unit Satuan</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Daftar Harga</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Merk Barang</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/merk_barang'); ?>">Merk Barang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Otorisasi Retur pada Barang</a></li>
                             </ul>
                         </li>

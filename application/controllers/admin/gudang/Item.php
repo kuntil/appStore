@@ -7,7 +7,7 @@ class Item extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->model('admin/Item_model','item');
+        $this->load->model('admin/gudang/Item_model','item');
         
     }
 
@@ -25,7 +25,7 @@ class Item extends Admin_Controller {
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['data']=array();
-        $this->template->admin_render('admin/item/index', $this->data);
+        $this->template->admin_render('admin/gudang/item/index', $this->data);
     }
 
     public function add(){
@@ -55,10 +55,10 @@ class Item extends Admin_Controller {
         $res = $this->item->add($data);
         if(!$res){
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/item");
+            redirect("admin/gudang/item");
         }else{
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/item");
+            redirect("admin/gudang/item");
         }
     }
 

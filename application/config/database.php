@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 
 /* Server Development 
-*/
+
 $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
 $db['default'] = array(
@@ -99,8 +99,8 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+*/
 
-/*
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -124,5 +124,4 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-*/
 

@@ -91,7 +91,7 @@
         <h4 class="modal-title" id="myModalLabel">Memasukan Data Barang</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open('admin/item/add'); ?>
+      <?php echo form_open('admin/gudang/item/add'); ?>
         <div class="box-body">
             <div class="input-group col-xs-12">              
                 <input type="input" class="form-control" id="kd_barang" name='brand_id' placeholder="Brand">
@@ -209,7 +209,7 @@ $(document).ready(function() {
 
      // Load data for the table's content from an Ajax source
      "ajax": {
-         "url": "<?php echo site_url('admin/item/ajax_list')?>",
+         "url": "<?php echo site_url('admin/gudang/item/ajax_list')?>",
          "type": "POST"
      },
 
