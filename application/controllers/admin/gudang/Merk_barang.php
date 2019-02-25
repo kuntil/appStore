@@ -25,7 +25,7 @@ class Merk_barang extends Admin_Controller {
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $this->data['data']=array();
-        $this->template->admin_render('admin/gudang/merek_barang/index', $this->data);
+        $this->template->admin_render('admin/gudang/merk_barang/index', $this->data);
     }
 
     public function add(){
@@ -39,10 +39,10 @@ class Merk_barang extends Admin_Controller {
         $res = $this->item->add($data);
         if(!$res){
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/gudang/merek_barang");
+            redirect("admin/gudang/merk_barang");
         }else{
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/gudang/merek_barang");
+            redirect("admin/gudang/merk_barang");
         }
     }
 
