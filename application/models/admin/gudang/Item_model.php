@@ -25,6 +25,20 @@ class Item_model extends CI_Model {
         }
     }
 
+    public function edit($data,$key1,$key2){
+        $this->db->set($data);
+        $this->db->where('item_code',$key1);
+        $this->db->where('supplier_id',$key2);
+        $res = $this->db->update($this->table);
+        if(!$res){
+            $ret['ErrorMessage'] = $this->db->_error_message();
+            $ret['ErrorNumber'] = $this->db->_error_number();
+            return $message = "DB Error: (".$ret['ErrorNumber'].") ".$ret['ErrorMessage'];
+        }else{
+            return $message = "Update Succesfully";
+        }
+    }
+
     public function _get_datatables_query(){    
         $this->db->from($this->table);
         $i=0;

@@ -47,6 +47,24 @@ class Gudang extends Admin_Controller {
         }
     }
 
+    public function edit(){
+        $data= array(
+            'gudang_id' => $this->input->post('gudang_id'),
+            'gudang_name' => $this->input->post('gudang_name'),
+            'gudang_desc'=>$this->input->post('gudang_desc'),
+            'status'=>$this->input->post('status')
+        );
+
+        $res = $this->item->edit($data);
+        if(!$res){
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/gudang");
+        }else{
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/gudang");
+        }
+    }
+
     public function ajax_list()
     {
         $list = $this->item->get_datatables();

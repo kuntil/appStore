@@ -24,6 +24,17 @@ class Gudang_model extends CI_Model {
             return $message = "Input Succesfully";
         }
     }
+    
+    public function edit($data,$key1){
+        $res = $this->db->update($this->table);
+        if(!$res){
+            $ret['ErrorMessage'] = $this->db->_error_message();
+            $ret['ErrorNumber'] = $this->db->_error_number();
+            return $message = "DB Error: (".$ret['ErrorNumber'].") ".$ret['ErrorMessage'];
+        }else{
+            return $message = "Input Succesfully";
+        }
+    }
 
     public function _get_datatables_query(){    
         $this->db->from($this->table);
