@@ -20,7 +20,7 @@ $host_dev = 'app-natural';
 
 // WARNING: Do not modify the lines below
 //$domain = (in_array($_SERVER['HTTP_HOST'], $config['host_dev'], TRUE)) ? $_SERVER['HTTP_HOST'] . '/' . $host_dev : $host_prod;
-
+/* pastikan kalo ini tetep terblok untuk serting server */
 //$config['base_url'] = ( ! empty($_SERVER['HTTPS'])) ? 'https://' . $domain : 'http://' . $domain;
 
 $config['base_url']="https://app-natural.herokuapp.com/";
