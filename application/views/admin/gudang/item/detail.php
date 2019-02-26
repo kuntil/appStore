@@ -30,7 +30,7 @@
                                 <th>Tgl Mulai</th>
                                 <th>Tgl Akhir</th>
                                 <th>Harga</th>
-                                <th>Aktif</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,7 +41,7 @@
                             <th>Tgl Mulai</th>
                             <th>Tgl Akhir</th>
                             <th>Harga</th>
-                            <th>Aktif</th>
+                            <th>Status</th>
                             </tr>
                         </tfoot>
                     </table>

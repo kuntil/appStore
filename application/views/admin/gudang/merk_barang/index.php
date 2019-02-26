@@ -61,7 +61,7 @@
         <h4 class="modal-title" id="myModalLabel">Memasukan Data Merek</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open('admin/gudang/merek_barang/add'); ?>
+      <?php echo form_open('admin/gudang/merk_barang/add'); ?>
         <div class="box-body">
             <div class="input-group col-xs-12">              
                 <input type="input" class="form-control" id="merk_id" name='merk_id' placeholder="ID Merek">
