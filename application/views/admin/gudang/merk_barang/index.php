@@ -38,7 +38,7 @@
 
                     </div>
                     <div class="box-footer">
-                    <button type="button" data-toggle="modal" data-target="#inputGudangModal" class="btn btn-info">Tambah Barang</button>
+                    <button type="button" data-toggle="modal" data-target="#inputMerekBarangModal" class="btn btn-info">Tambah Barang</button>
                     <?php 
                     if($this->session->flashdata('error')!=null){
                         echo $this->session->flashdata('message_name');
