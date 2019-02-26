@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class CategoryBarang_model extends CI_Model {
 
-    var $table = 'category_barang_tbl';
+    var $table = 'category_tbl';
     var $column_order = array(null, 'category_id','category_name','category_desc','qversion','qid'); //set column field database for datatable orderable
     var $column_search = array('category_id','category_name','category_desc','qversion','qid'); //set column field database for datatable searchable 
     var $order = array('category_name' => 'asc'); // default order 

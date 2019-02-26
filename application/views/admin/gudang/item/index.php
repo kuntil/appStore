@@ -199,7 +199,7 @@
 <!-- END Modal Add -->
 
 <!-- Modal  Edit-->
-<div class="modal fade" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -340,13 +340,20 @@ $(document).ready(function() {
  });
 
  $('#editItemModal').click(function () {
-    var ids = $.map(table.rows('.selected').data(), function (item) {
-        return item[0]
-    });
-    console.log(ids)
-    alert(table.rows('.selected').data().length + ' row(s) selected');
-});
+    console.log($(this).data('itemid'));
+     $.ajax({
+            type: "POST",
+            url: "<?php echo site_url('admin/gudang/item/getByID')?>",
+            data: {"item_code" : $(this).data('itemid')},
+            success : function(){
+                
+                console.log($(this).data('itemid'));
+            },
+            error: function(){
+                alert($(this).data('itemid'));
+            }
+        });    
 
+ });
 });
-
 </script>

@@ -83,6 +83,13 @@ class Item_model extends CI_Model {
         $query = $this->db->get();
         return $query->result();
     }
+
+    function getByID($id){
+        $this->db->where('item_code',$id);
+        $query = $this->db->get($this->table);
+        return $query->result();
+    }
+    
  
     function count_filtered()
     {
