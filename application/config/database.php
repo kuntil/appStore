@@ -99,6 +99,7 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
 /*
 $query_builder = TRUE;
 

@@ -58,6 +58,7 @@ class Merk_barang extends Admin_Controller {
             $row[] = $item->merk_id;
             $row[] = $item->merk_name;
             $row[] = $item->merk_desc;
+            $row[] = $item->status;
             $data[] = $row;
         }
  

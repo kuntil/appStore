@@ -98,39 +98,14 @@ class Item extends Admin_Controller {
     public function detail($id=null){
         $no=0;
         $list = $this->item->getByID($id);
-        $data = array();
-        foreach($list as $item){
-            $no++;
-            $row = array();
-            $row[] = $no;
-            $row[] = $item->item_code;
-            $row[] = $item->item_name;
-            $row[] = $item->supplier_id;
-            // $row[] = $item->barcode;
-            // $row[] = $item->desc;
-            // $row[] = $item->item_type;
-            $row[] = $item->item_tax;
-            $row[] = $item->measurement_unit;
-            $row[] = $item->brand_id;
-            // $row[] = $item->delivery_method;
-            // $row[] = $item->photo;
-            // $row[] = $item->price_1;
-            // $row[] = $item->price_2;
-            // $row[] = $item->price_3;
-            // $row[] = $item->disc_1;
-            // $row[] = $item->disc_2;
-            // $row[] = $item->disc_3;
-            $row[] = $item->stock_alert;
-            $row[] = $item->status;
-            $data['item'] = $row;
-        }
-        
+                
         /* Title Page */
         $this->page_title->push(lang('menu_dashboard'));
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $this->data['item'] = $list;
         $this->data['data']=array();
         
         $this->template->admin_render('admin/gudang/item/detail', $this->data);

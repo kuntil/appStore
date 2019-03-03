@@ -10,9 +10,36 @@
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title"></h3>
+                        <i class="fa fa-globe"></i>Detail Barang.
+                        <small class="pull-right"><a href="#">Edit</a></small>
                     </div>
                     <div class="box-body">
-                        
+                    
+                    <div class="row invoice-info">
+                        <?php 
+                        foreach($item as $row) : ?>
+                        <div class="col-sm-6 invoice-col">
+                        <address>
+                            <strong>Kode Barang :<?php echo $row->item_code ?></strong><br>
+                            Nama Barang :<?php echo $row->item_name ?><br>
+                            Barcode : <?php echo $row->barcode ?><br>
+                            Deskripsi : <?php echo $row->desc ?><br>
+                            Tipe Barang : <?php echo $row->item_type ?><br>
+                            Pajak : <?php echo $row->item_tax ?>
+                        </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-6 invoice-col">
+                        <address>
+                            <strong>Kode Supplier <?php echo $row->supplier_id ?></strong><br>
+                            Unit Satuan : <?php echo $row->measurement_unit ?><br>
+                            Kode Brand : <?php echo $row->brand_id ?><br>
+                            Metode Pengiriman : <?php echo $row->delivery_method ?>
+                        </address>
+                        </div>
+                        <!-- /.col -->
+                        <?php endforeach; ?>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -29,7 +56,12 @@
                                 <th>No</th>
                                 <th>Tgl Mulai</th>
                                 <th>Tgl Akhir</th>
-                                <th>Harga</th>
+                                <th>Harga 1</th>
+                                <th>Harga 2</th>
+                                <th>Harga 3</th>
+                                <th>Diskon 1</th>
+                                <th>Diskon 2</th>
+                                <th>Diskon 3</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -40,7 +72,12 @@
                             <th>No</th>
                             <th>Tgl Mulai</th>
                             <th>Tgl Akhir</th>
-                            <th>Harga</th>
+                            <th>Harga 1</th>
+                            <th>Harga 2</th>
+                            <th>Harga 3</th>
+                            <th>Diskon 1</th>
+                            <th>Diskon 2</th>
+                            <th>Diskon 3</th>
                             <th>Status</th>
                             </tr>
                         </tfoot>
@@ -112,7 +149,7 @@ $(document).ready(function() {
 
      // Load data for the table's content from an Ajax source
      "ajax": {
-         "url": "<?php echo site_url('admin/gudang/category_barang/ajax_list')?>",
+         "url": "<?php echo site_url('admin/gudang/item_price/ajax_list/'.$this->uri->segment(5))?>",
          "type": "POST"
      },
 
