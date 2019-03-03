@@ -58,9 +58,16 @@ class Item_price extends Admin_Controller {
             $no++;
             $row = array();
             $row[] = $no;
-            $row[] = $item->gudang_id;
-            $row[] = $item->gudang_name;
-            $row[] = $item->gudang_desc;
+            $row[] = $item->seq_no;
+            $row[] = $item->item_code;
+            $row[] = $item->valid_from;
+            $row[] = $item->valid_to;
+            $row[] = $item->harga_1;
+            $row[] = $item->harga_2;
+            $row[] = $item->harga_3;
+            $row[] = $item->diskon_1;
+            $row[] = $item->diskon_2;
+            $row[] = $item->diskon_3;
             $row[] = $item->status;
             $data[] = $row;
         }
