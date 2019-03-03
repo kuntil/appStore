@@ -92,14 +92,14 @@ class ItemPrice_model extends CI_Model {
     }
     
  
-    function count_filtered()
+    function count_filtered($id=null)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($id);
         $query = $this->db->get();
         return $query->num_rows();
     }
  
-    public function count_all()
+    public function count_all($id=null)
     {
         $this->db->from($this->table);
         return $this->db->count_all_results();

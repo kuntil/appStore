@@ -74,8 +74,8 @@ class Item_price extends Admin_Controller {
  
         $output = array(
                         "draw" => $_POST['draw'],
-                        "recordsTotal" => $this->item->count_all(),
-                        "recordsFiltered" => $this->item->count_filtered(),
+                        "recordsTotal" => $this->item->count_all($id),
+                        "recordsFiltered" => $this->item->count_filtered($id),
                         "data" => $data,
                 );
         //output to json format
