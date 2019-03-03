@@ -151,7 +151,7 @@ $(document).ready(function() {
      "ajax": {
          "url": "<?php echo site_url('admin/gudang/item_price/ajax_list/')?>",
          "type": "POST",
-         "data":{ "item_code": $this->uri->segment(5)}
+         "data":{ "item_code": <?php echo $this->uri->segment(5)?> }
      },
 
      //Set column definition initialisation properties.
