@@ -50,7 +50,7 @@
                     </div>
                     <div class="box-body">
                     
-                    <table id="tableItem" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                    <table id="tableItemDetail" class="table table-bordered table-striped" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No</th>
