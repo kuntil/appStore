@@ -51,7 +51,6 @@ class Item_price extends Admin_Controller {
     public function ajax_list()
     {
         $id=$_POST['item_code'];
-        echo $id;
         $list = $this->item->get_datatables();
         $data = array();
         $no = $_POST['start'];  
