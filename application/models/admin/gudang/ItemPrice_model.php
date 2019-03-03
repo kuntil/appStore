@@ -6,7 +6,7 @@ class ItemPrice_model extends CI_Model {
     var $table = 'item_price_tbl';
     var $column_order = array(null, 'seq_no','item_code','valid_from','valid_to','harga_1','harga_2','harga_3','diskon_1','diskon_2','diskon_3','status'); //set column field database for datatable orderable
     var $column_search = array('seq_no','item_code','valid_from','valid_to','harga_1','harga_2','harga_3','diskon_1','diskon_2','diskon_3','status'); //set column field database for datatable searchable 
-    var $order = array('seq_no AND item_code' => 'asc'); // default order 
+    var $order = array('seq_no , item_code' => 'asc'); // default order 
 
     public function __construct()
     {
