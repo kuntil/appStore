@@ -149,8 +149,9 @@ $(document).ready(function() {
 
      // Load data for the table's content from an Ajax source
      "ajax": {
-         "url": "<?php echo site_url('admin/gudang/item_price/ajax_list/'.$this->uri->segment(5))?>",
-         "type": "POST"
+         "url": "<?php echo site_url('admin/gudang/item_price/ajax_list/')?>",
+         "type": "POST",
+         "data":{ "item_code": $this->uri->segment(5)}
      },
 
      //Set column definition initialisation properties.
