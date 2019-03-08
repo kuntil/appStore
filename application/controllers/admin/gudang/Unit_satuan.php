@@ -32,7 +32,7 @@ class Unit_satuan extends Admin_Controller {
         
         $data= array(
             'unit_id' => $this->input->post('unit_id'),
-            'unit_name' => $this->input->post('unit_name')
+            'unit_desc' => $this->input->post('unit_desc')
         );
 
         $res = $this->item->add($data);
@@ -55,7 +55,7 @@ class Unit_satuan extends Admin_Controller {
             $row = array();
             $row[] = $no;
             $row[] = $item->unit_id;
-            $row[] = $item->unit_name;
+            $row[] = $item->unit_desc;
             $data[] = $row;
         }
  

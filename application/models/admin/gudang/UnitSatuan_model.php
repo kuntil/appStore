@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class UnitSatuan_model extends CI_Model {
 
     var $table = 'unit_tbl';
-    var $column_order = array(null, 'unit_id','unit_name'); //set column field database for datatable orderable
-    var $column_search = array('unit_name'); //set column field database for datatable searchable 
-    var $order = array('unit_name' => 'asc'); // default order 
+    var $column_order = array(null, 'unit_id','unit_desc'); //set column field database for datatable orderable
+    var $column_search = array('unit_desc'); //set column field database for datatable searchable 
+    var $order = array('unit_desc' => 'asc'); // default order 
 
     public function __construct()
     {

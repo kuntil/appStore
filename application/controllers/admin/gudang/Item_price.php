@@ -12,21 +12,32 @@ class Item_price extends Admin_Controller {
     }
 
     public function add(){
-        
+        $this->db->trans_start();
+        // echo $this->item->get_sequenceNo($this->input->post('item_code'));
         $data= array(
-            'gudang_id' => $this->input->post('gudang_id'),
-            'gudang_name' => $this->input->post('gudang_name'),
-            'gudang_desc'=>$this->input->post('gudang_desc'),
+            'seq_no' => $this->item->get_sequenceNo($this->input->post('item_code')),
+            'item_code' => $this->input->post('item_code'),
+            'valid_from'=>$this->input->post('valid_from'),
+            'valid_to'=>$this->input->post('valid_to'),
+            'harga_1'=>$this->input->post('harga_1'),
+            'harga_2'=>$this->input->post('harga_2'),
+            'harga_3'=>$this->input->post('harga_3'),
+            'diskon_1'=>$this->input->post('diskon_1'),
+            'diskon_2'=>$this->input->post('diskon_2'),
+            'diskon_3'=>$this->input->post('diskon_3'),
             'status'=>$this->input->post('status')
+         
         );
-
         $res = $this->item->add($data);
         if(!$res){
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/gudang/gudang");
+            redirect("admin/gudang/item/detail/".$this->input->post('item_code'));
+            $this->db->trans_complete();
         }else{
+            $this->item->change_status($this->input->post('item_code'),$this->input->post('valid_from'));
             $this->session->set_flashdata('Error',$res);
-            redirect("admin/gudang/gudang");
+            $this->db->trans_complete();
+            redirect("admin/gudang/item/detail/".$this->input->post('item_code'));
         }
     }
 
@@ -57,7 +68,6 @@ class Item_price extends Admin_Controller {
         foreach ($list as $item) {
             $no++;
             $row = array();
-            $row[] = $no;
             $row[] = $item->seq_no;
             $row[] = $item->item_code;
             $row[] = $item->valid_from;

@@ -143,31 +143,6 @@
                 <input type="input" class="form-control" id="measurement_unit" name='measurement_unit' placeholder="Satuan Unit">
             </div>
             <br>
-            <div class="input-group">             
-                <span class="input-group-addon">Rp</span>
-                <input type="input" class="form-control" id="kd_barang" placeholder="Recommended Purchase Price">
-                <span class="input-group-addon">.00</span>
-            </div>
-            <br>
-            <div class="input-group">           
-                <span class="input-group-addon">Rp</span>   
-                <input type="input" class="form-control" id="kd_barang" placeholder="Recommended Sales Price">
-                <span class="input-group-addon">.00</span>
-            </div>
-            <!--<div class="input-group">              
-                <label for="kd_barang">Harga</label>
-                <input type="input" class="form-control" id="kd_barang" placeholder="Isi Kode Barang">
-            </div>-->
-            <br>
-            <div class="input-group">              
-                <span class="input-group-addon">%</span>
-                <input type="input" class="form-control" id="disc" name='disc_1' placeholder="Recommended Discount 1">
-                <span class="input-group-addon">%</span>
-                <input type="input" class="form-control" id="disc" name='disc_2' placeholder="Recommended Discount 2">
-                <span class="input-group-addon">%</span>
-                <input type="input" class="form-control" id="disc" name='disc_3' placeholder="Recommended Discount 2">
-            </div>
-            <br>
             <div class="input-group col-xs-12">              
                 <input type="input" class="form-control" id="stock_alert" name='stock_alert' placeholder="Peringatan Stock">
                 <span class="input-group-addon">.00</span>

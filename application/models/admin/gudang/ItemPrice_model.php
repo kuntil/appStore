@@ -14,6 +14,28 @@ class ItemPrice_model extends CI_Model {
         $this->load->database();
     }   
 
+    public function get_sequenceNo($id){
+        $query ="SELECT IFNULL(MAX(seq_no),0)+1 seq_no FROM item_price_tbl WHERE item_code='$id'";
+        $res = $this->db->query($query)->row();
+        // echo print_r($res);
+        return $res->seq_no;
+    }
+
+    public function change_status($id,$validFrom){
+        $data = array(
+            'status' => '0',
+            'valid_to'=> $validFrom
+         );
+        $this->db->where('item_code',$id);
+        $this->db->where('valid_from !=',$validFrom);
+        $res =$this->db->update($this->table,$data);
+        if(!$res){
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+
     public function add($data){
         $res = $this->db->insert($this->table,$data);
         if(!$res){

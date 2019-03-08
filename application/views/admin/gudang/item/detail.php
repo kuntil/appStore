@@ -11,12 +11,13 @@
                     <div class="box-header with-border">
                         <h3 class="box-title"></h3>
                         <i class="fa fa-globe"></i>Detail Barang.
-                        <small class="pull-right"><a href="#">Edit</a></small>
+                        <small class="pull-right"><a href="../edit/<?php echo $this->uri->segment(5)?>">Edit</a></small>
                     </div>
                     <div class="box-body">
                     
                     <div class="row invoice-info">
                         <?php 
+                        // echo print_r($item);
                         foreach($item as $row) : ?>
                         <div class="col-sm-6 invoice-col">
                         <address>
@@ -54,6 +55,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Item Code</th>
                                 <th>Tgl Mulai</th>
                                 <th>Tgl Akhir</th>
                                 <th>Harga 1</th>
@@ -70,6 +72,7 @@
                         <tfoot>
                             <tr>
                             <th>No</th>
+                            <th>Item Code</th>
                             <th>Tgl Mulai</th>
                             <th>Tgl Akhir</th>
                             <th>Harga 1</th>
@@ -108,18 +111,46 @@
         <h4 class="modal-title" id="myModalLabel">Memasukan Data Categori Barang</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open('admin/gudang/category_barang/add'); ?>
+      <?php echo form_open('admin/gudang/item_price/add'); ?>
         <div class="box-body">
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="category_id" name='category_id' placeholder="Kategori ID">
+                <input type="input" class="form-control" id="item_code" name='item_code' placeholder="Item Code" value="<?php echo $this->uri->segment(5)?>" readonly>
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="category_name" name='category_name' placeholder="Nama Kategori">
+                <input type="date" class="form-control" id="valid_from" name='valid_from' placeholder="Tanggal Awal">
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="category_desc" name='category_desc' placeholder="Deskripsi">
+                <input type="date" class="form-control" id="valid_to" name='valid_to' placeholder="Tanggal Akhir">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="harga_1" name='harga_1' placeholder="Harga 1">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="harga_2" name='harga_2' placeholder="Harga 2">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="harga_3" name='harga_3' placeholder="Harga 3">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="diskon_1" name='diskon_1' placeholder="Diskon 1">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="diskon_2" name='diskon_2' placeholder="Diskon 2">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="diskon_3" name='diskon_3' placeholder="Diskon 3">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">              
+                <input type="input" class="form-control" id="status" name='status' placeholder="Status">
             </div>
         </div>
         <!-- /.box-body -->
