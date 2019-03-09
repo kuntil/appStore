@@ -8,6 +8,7 @@ class Penyesuaian_barang extends Admin_Controller {
 
         /* Load :: Common */
         $this->load->model('admin/gudang/PenyesuaianBarang_model','item');
+        $this->load->model('admin/gudang/Gudang_model','gudang');
         
     }
 
@@ -24,6 +25,8 @@ class Penyesuaian_barang extends Admin_Controller {
 
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $list = $this->gudang->get_datatables();
+        $this->data['gudang'] = $list;
         $this->data['data']=array();
         $this->template->admin_render('admin/gudang/penyesuaian_barang/index', $this->data);
     }

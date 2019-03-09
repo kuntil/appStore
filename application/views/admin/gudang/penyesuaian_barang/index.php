@@ -10,6 +10,13 @@
                     <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Penyesuaian Barang</h3>
+                        <div class="input-group">
+                        <label>Type Barang</label>
+                        <select class="form-control" name='item_type'>
+                            <option>Purchase</option>
+                            <option>Service</option>
+                        </select>
+                    </div>
                     </div>
                     <div class="box-body">
                     
