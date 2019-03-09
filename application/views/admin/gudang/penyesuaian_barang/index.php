@@ -13,8 +13,9 @@
                         <div class="input-group">
                         <label>Type Barang</label>
                         <select class="form-control" name='item_type'>
-                            <option>Purchase</option>
-                            <option>Service</option>
+                            <?php foreach( $item as $row) : ?>
+                            <option value="<?php echo $row->gudang_id?>"><?php echo $row->gudang_name?></option>
+                        <?php endforeach;?>
                         </select>
                     </div>
                     </div>
