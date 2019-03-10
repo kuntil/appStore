@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Gudang_model extends CI_Model {
+class StokRevisi_model extends CI_Model {
 
-    var $table = 'gudang_tbl';
-    var $column_order = array(null, 'gudang_id','gudang_name','gudang_desc','status','qversion','qid'); //set column field database for datatable orderable
-    var $column_search = array('gudang_name','gudang_desc','status','qversion','qid'); //set column field database for datatable searchable 
-    var $order = array('gudang_name' => 'asc'); // default order 
+    var $table = 'stok_revisi_tbl';
+    var $column_order = array(null, 'gudang_id','item_code','tgl','stok_awal','stok_revisi','alasan','qversion','qid'); //set column field database for datatable orderable
+    var $column_search = array('item_code','tgl','stok_awal','stok_revisi','alasan','qversion','qid'); //set column field database for datatable searchable 
+    var $order = array('stok_tbl.item_code' => 'asc'); // default order 
 
     public function __construct()
     {
@@ -14,8 +14,22 @@ class Gudang_model extends CI_Model {
         $this->load->database();
     }
 
+    public function isExist(){
+        $this->db->where('gudang_id',$_POST['gudang_id']);
+        $this->db->where('item_code',$_POST['item_code']);
+        $this->db->where('tgl',date('Y:m:d'));
+        $result = $this->db->get($this->table);
+        if($result->num_rows() > 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     public function add($data){
+        
         $res = $this->db->insert($this->table,$data);
+        // print_r($res);
         if(!$res){
             $ret['ErrorMessage'] = $this->db->_error_message();
             $ret['ErrorNumber'] = $this->db->_error_number();
@@ -25,7 +39,11 @@ class Gudang_model extends CI_Model {
         }
     }
     
-    public function edit($data,$key1){
+    public function edit($data,$key1,$key2){
+        $this->db->where('gudang_id',$key1);
+        $this->db->where('item_code',$key2);
+        $this->db->where('tgl',date('Y/m/d'));
+        $this->db->set($data);
         $res = $this->db->update($this->table);
         if(!$res){
             $ret['ErrorMessage'] = $this->db->_error_message();
@@ -72,6 +90,31 @@ class Gudang_model extends CI_Model {
             }
         }
     }
+    
+    function getByID( string $gudang_id=null, string $item_code=null){
+
+        $this->db->where('gudang_id',$gudang_id);
+        $this->db->where('item_code',$item_code);
+        $this->db->where('tgl', date('y-m-d'));
+        $query = $this->db->get($this->table);
+        $num = $query->num_rows();
+        echo $num;
+        if($num==0){
+            $data  = (object) array(
+                'gudang_id'=> $gudang_id,
+                'item_code'=> $item_code,
+                'tgl'=> date('y-m-d'),
+                'stok_revisi' => 0,
+                'alasan'=> '',
+            );
+            $output = array($data);
+            return($output);
+        }else{
+            return $query->result();
+        }
+        
+    }
+    
 
     function get_datatables()
     {
@@ -81,13 +124,19 @@ class Gudang_model extends CI_Model {
                 $this->db->limit($_POST['length'], $_POST['start']);
             }
         }
+        $this->db->join('item_tbl','item_tbl.item_code = stok_tbl.item_code');
+        $this->db->where('stok_tbl.gudang_id',$_POST['gudang_id']);
+        // print_r($this->db);
         $query = $this->db->get();
+        // print_r($query);
         return $query->result();
     }
  
     function count_filtered()
     {
         $this->_get_datatables_query();
+        $this->db->join('item_tbl','item_tbl.item_code = stok_tbl.item_code');
+        $this->db->where('stok_tbl.gudang_id',$_POST['gudang_id']);
         $query = $this->db->get();
         return $query->num_rows();
     }
@@ -95,6 +144,8 @@ class Gudang_model extends CI_Model {
     public function count_all()
     {
         $this->db->from($this->table);
+        $this->db->join('item_tbl','item_tbl.item_code = stok_tbl.item_code');
+        $this->db->where('stok_tbl.gudang_id',$_POST['gudang_id']);
         return $this->db->count_all_results();
     }
 

@@ -9,11 +9,11 @@
             <div class="col-md-12">
                     <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Penyesuaian Barang</h3>
                         <div class="input-group">
-                        <label>Type Barang</label>
-                        <select class="form-control" name='item_type'>
-                            <?php foreach( $item as $row) : ?>
+                        <label><h3 class="box-title">Pilih Gudang</h3></label>
+                        <select class="form-control" name='gudang_id' id="selectGudang">
+                            <option value=""></option>
+                            <?php foreach( $gudang as $row) : ?>
                             <option value="<?php echo $row->gudang_id?>"><?php echo $row->gudang_name?></option>
                         <?php endforeach;?>
                         </select>
@@ -25,10 +25,14 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Merek</th>
-                                <th>Nama Merek</th>
-                                <th>Dekripsi</th>
-                                <th>Status</th>
+                                <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Tanggal</th>
+                                <th>Stok Awal</th>
+                                <th>Stok Masuk</th>
+                                <th>Stok Keluar</th>
+                                <th>Stok Sekarang</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,10 +40,14 @@
                         <tfoot>
                             <tr>
                             <th>No</th>
-                            <th>ID Merek</th>
-                            <th>Nama Merek</th>
-                            <th>Dekripsi</th>
-                            <th>Status</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Tanggal</th>
+                            <th>Stok Awal</th>
+                            <th>Stok Masuk</th>
+                            <th>Stok Keluar</th>
+                            <th>Stok Sekarang</th>
+                            <th></th>
                             </tr>
                         </tfoot>
                     </table>
@@ -104,8 +112,15 @@
 <script type="text/javascript">
 // $.noConflict();
 var table;
+var gudang;
 $(document).ready(function() {
- 
+
+    $('#selectGudang').change( function() {
+        // gudang = $("#selectGudang").val();
+        table.ajax.reload();
+    });
+
+
  //datatables
  table = $('#tableMerekBarang').DataTable({ 
 
@@ -115,8 +130,11 @@ $(document).ready(function() {
 
      // Load data for the table's content from an Ajax sou\=orce
      "ajax": {
-         "url": "<?php echo site_url('admin/gudang/merk_barang/ajax_list')?>",
-         "type": "POST"
+         "url": "<?php echo site_url('admin/gudang/stok/ajax_list')?>",
+         "type": "POST",
+         "data": function(d){
+             d.gudang_id = $("#selectGudang").val();
+         }
      },
 
      //Set column definition initialisation properties.
@@ -129,6 +147,7 @@ $(document).ready(function() {
 
  });
 
+ 
 });
 
 </script>

@@ -7,7 +7,8 @@ class Penyesuaian_barang extends Admin_Controller {
         parent::__construct();
 
         /* Load :: Common */
-        $this->load->model('admin/gudang/PenyesuaianBarang_model','item');
+        $this->load->model('admin/gudang/Stok_model','item');
+        $this->load->model('admin/gudang/StokRevisi_model','revisi');
         $this->load->model('admin/gudang/Gudang_model','gudang');
         
     }
@@ -31,18 +32,25 @@ class Penyesuaian_barang extends Admin_Controller {
         $this->template->admin_render('admin/gudang/penyesuaian_barang/index', $this->data);
     }
 
+    public function execute(){
+        if($this->revisi->isExist()){
+            $this->add();
+        }else{
+            $this->edit();
+        }
+    }
+
     public function add(){
         
         $data= array(
-            'seq_no' => $this->input->post('seq_no'),
             'gudang_id' => $this->input->post('gudang_id'),
-            'item_id'=>$this->input->post('item_id'),
-            'input_date'=>$this->input->post('input_date'),
-            'qty'=>$this->input->post('qty'),
-            'status'=>$this->input->post('status')
+            'item_code' => $this->input->post('item_code'),
+            'tgl'=>$this->input->post('tgl'),
+            'stok_revisi'=>$this->input->post('stok_revisi'),
+            'alasan'=>$this->input->post('alasan')
         );
 
-        $res = $this->item->add($data);
+        $res = $this->revisi->add($data);
         if(!$res){
             $this->session->set_flashdata('Error',$res);
             redirect("admin/gudang/penyesuaian_barang");
@@ -52,8 +60,40 @@ class Penyesuaian_barang extends Admin_Controller {
         }
     }
 
+    public function edit(){
+        
+        $data= array(
+            'stok_revisi'=>$this->input->post('stok_revisi'),
+            'alasan'=>$this->input->post('alasan')
+        );
+        $res = $this->revisi->edit($data,$this->input->post('gudang_id'),$this->input->post('item_code'));
+        if(!$res){
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/penyesuaian_barang");
+        }else{
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/penyesuaian_barang");
+        }
+    }
+
+    public function detail(string $id=null, string $item_code=null){
+
+        /* Title Page */
+        $this->page_title->push(lang('menu_dashboard'));
+        $this->data['pagetitle'] = $this->page_title->show();
+
+        /* Breadcrumbs */
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $list = $this->revisi->getByID($id,$item_code);
+        $this->data['item'] = $list;
+        // print_r($list);
+        $this->data['data']=array();
+        $this->template->admin_render('admin/gudang/penyesuaian_barang/detail', $this->data);
+    }
+
     public function ajax_list()
     {
+        // echo "nilai gudang".$_POST['gudang_id'];
         $list = $this->item->get_datatables();
         $data = array();
         $no = $_POST['start'];
@@ -61,11 +101,13 @@ class Penyesuaian_barang extends Admin_Controller {
             $no++;
             $row = array();
             $row[] = $no;
-            $row[] = $item->seq_no;
-            $row[] = $item->gudang_id;
-            $row[] = $item->item_id;
-            $row[] = $item->input_date;
-            $row[] = $item->qty;
+            $row[] = $item->item_code;
+            $row[] = $item->item_name;
+            $row[] = $item->tgl;
+            $row[] = $item->stok_awal;
+            $row[] = $item->stok_keluar;
+            $row[] = $item->stok_sekarang;
+            $row[] = '<a href="penyesuaian_stok/detail/'.$item->gudang_id.'/'.$item->item_code.'/'.$item->tgl.'">Penyesuaian Stok</a>';
             $data[] = $row;
         }
  

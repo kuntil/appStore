@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="treeview-menu">
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/transfer_gudang'); ?>">Transfer Antar Gudang</a></li>
-                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/penyesuain_barang'); ?>">Penyesuaian Persedian</a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/penyesuaian_barang'); ?>">Penyesuaian Persedian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('#'); ?>">Laporan Persedian</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/item'); ?>">Barang</a></li>
                                 <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/gudang/category_barang'); ?>">Kategori Barang</a></li>

@@ -102,6 +102,7 @@ class Item extends Admin_Controller {
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
             $list = $this->item->getByID($this->uri->segment(5));
+            // print_r($list);
             $this->data['item'] = $list;
             $this->data['data']=array();
             $this->template->admin_render('admin/gudang/item/edit', $this->data);
