@@ -28,6 +28,17 @@ class Item extends Admin_Controller {
         $this->template->admin_render('admin/gudang/item/index', $this->data);
     }
 
+    function get_autocomplete(){
+        if (isset($_GET['term'])) {
+            $result = $this->item->search_item($_GET['term']);
+            if (count($result) > 0) {
+            foreach ($result as $row)
+                $arr_result[] = $row->item_name;
+                echo json_encode($arr_result);
+            }
+        }
+    }
+
     public function add(){
         
         $data= array(

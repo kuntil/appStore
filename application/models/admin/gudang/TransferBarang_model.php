@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PenyesuaianBarang_model extends CI_Model {
+class TransferBarang_model extends CI_Model {
 
     var $table = 'transfer_barang_tbl';
     var $column_order = array(null, 'seq_no','gudang_id','gudang_id_to','item_code','qty','tgl_transfer','status'); //set column field database for datatable orderable

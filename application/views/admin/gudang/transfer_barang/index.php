@@ -9,36 +9,36 @@
             <div class="col-md-12">
                     <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">List Merek Barang</h3>
+                        <h3 class="box-title">Category Barang</h3>
                     </div>
                     <div class="box-body">
                     
-                    <table id="tableMerekBarang" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                    <table id="tableItem" class="table table-bordered table-striped" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>ID Merek</th>
-                                <th>Nama Merek</th>
-                                <th>Dekripsi</th>
-                                <th>Status</th>
+                                <th>No Ref.</th>
+                                <th>Gudang Asal</th>
+                                <th>Gudang Tujuan</th>
+                                <th>Barang</th>
+                                <th>Jumlah</th>
                             </tr>
                         </thead>
                         <tbody>
                         </tbody>
                         <tfoot>
                             <tr>
-                            <th>No</th>
-                            <th>ID Merek</th>
-                            <th>Nama Merek</th>
-                            <th>Dekripsi</th>
-                            <th>Status</th>
+                                <th>No Ref.</th>
+                                <th>Gudang Asal</th>
+                                <th>Gudang Tujuan</th>
+                                <th>Barang</th>
+                                <th>Jumlah</th>
                             </tr>
                         </tfoot>
                     </table>
 
                     </div>
                     <div class="box-footer">
-                    <button type="button" data-toggle="modal" data-target="#inputMerekBarangModal" class="btn btn-info">Tambah Barang</button>
+                    <button type="button" data-toggle="modal" data-target="#categorybarangModal" class="btn btn-info">Tambah Barang</button>
                     <?php 
                     if($this->session->flashdata('error')!=null){
                         echo $this->session->flashdata('message_name');
@@ -53,34 +53,42 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="inputMerekBarangModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="categorybarangModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Memasukan Data Merek</h4>
+        <h4 class="modal-title" id="myModalLabel">Memasukan Data Categori Barang</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open('admin/gudang/merk_barang/add'); ?>
+      <?php echo form_open('admin/gudang/category_barang/add'); ?>
         <div class="box-body">
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_id" name='merk_id' placeholder="ID Merek">
+            <label>Pilih Gudang Asal </label>
+            <select class="form-control" name='gudang_from'>
+                <?php foreach( $gudang as $row) : ?>
+                <option value="<?php echo $row->gudang_id?>"><?php echo $row->gudang_name?></option>
+            <?php endforeach;?>  
+            </select>         
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_name" name='merk_name' placeholder="Nama Merek">
+            <label>Pilih Gudang Tujuan </label>
+            <select class="form-control" name='gudang_to'>
+                <?php foreach( $gudang as $row) : ?>
+                <option value="<?php echo $row->gudang_id?>"><?php echo $row->gudang_name?></option>
+            <?php endforeach;?>
+            </select> 
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_desc" name='merk_desc' placeholder="Deskripsi">
+            <label>Pilih Barang </label>
+            <input type="text" class="form-control" name="item_code" id="searchItem" placeholder="Barang" autocomplete="on">
             </div>
             <br>
-            <div class="input-group col-xs-12">              
-            <label>Status </label>
-            <select class="form-control" name='status'>
-                <option value='1'>Aktif</option>
-                <option value='2'>Tidak Aktif</option>
-            </select>
+            <div class="input-group col-xs-12">
+                <label>Stok Transfer </label>              
+                <input type="input" class="form-control" id="stok" name='stok' placeholder="Stok">
             </div>
             <br>
         </div>
@@ -102,16 +110,19 @@
 var table;
 $(document).ready(function() {
  
+    $( "#searchItem" ).autocomplete({
+        source: "<?php echo site_url('admin/gudang/item/get_autocomplete');?>"
+    });
  //datatables
- table = $('#tableMerekBarang').DataTable({ 
+ table = $('#tableItem').DataTable({ 
 
      "processing": true, //Feature control the processing indicator.
      "serverSide": true, //Feature control DataTables' server-side processing mode.
      "order": [], //Initial no order.
 
-     // Load data for the table's content from an Ajax sou\=orce
+     // Load data for the table's content from an Ajax source
      "ajax": {
-         "url": "<?php echo site_url('admin/gudang/merk_barang/ajax_list')?>",
+         "url": "<?php echo site_url('admin/gudang/category_barang/ajax_list')?>",
          "type": "POST"
      },
 

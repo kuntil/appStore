@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta charset="<?php echo $charset; ?>">
         <title><?php echo $title; ?></title>
         <script language="JavaScript" type="text/javascript" src="<?php echo base_url($frameworks_dir.'/jquery/jquery-2.2.3.js')?>"></script>
+        <script language="JavaScript" type="text/javascript" src="<?php echo base_url($frameworks_dir.'/jquery/jquery-ui.min.js')?>"></script>
         <script language="JavaScript" type="text/javascript" src="<?php echo base_url($frameworks_dir.'/datatables/js/jquery.dataTables.min.js')?>"></script>
         <script language="JavaScript" type="text/javascript" src="<?php echo base_url($frameworks_dir.'/datatables/js/dataTables.bootstrap.min.js')?>"></script>
         <script language="JavaScript" type="text/javascript" src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script>
@@ -41,6 +42,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/ionicons/css/ionicons.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/skins/skin-blue.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/jquery/jquery-ui.min.css'); ?>">
+
 <?php if ($mobile === FALSE && $admin_prefs['transition_page'] == TRUE): ?>
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/animsition/animsition.min.css'); ?>">
 <?php endif; ?>

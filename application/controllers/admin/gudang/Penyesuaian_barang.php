@@ -10,6 +10,7 @@ class Penyesuaian_barang extends Admin_Controller {
         $this->load->model('admin/gudang/Stok_model','item');
         $this->load->model('admin/gudang/StokRevisi_model','revisi');
         $this->load->model('admin/gudang/Gudang_model','gudang');
+        $this->load->model('admin/gudang/Item_model','barang');
         
     }
 
@@ -28,6 +29,8 @@ class Penyesuaian_barang extends Admin_Controller {
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
         $list = $this->gudang->get_datatables();
         $this->data['gudang'] = $list;
+        $list = $this->barang->get_datatables();
+        $this->data['item'] = $list;
         $this->data['data']=array();
         $this->template->admin_render('admin/gudang/penyesuaian_barang/index', $this->data);
     }
@@ -51,6 +54,25 @@ class Penyesuaian_barang extends Admin_Controller {
         );
 
         $res = $this->revisi->add($data);
+        if(!$res){
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/penyesuaian_barang");
+        }else{
+            $this->session->set_flashdata('Error',$res);
+            redirect("admin/gudang/penyesuaian_barang");
+        }
+    }
+
+    public function add_barang(){
+        $data= array(
+            'gudang_id' => $this->input->post('gudang_id'),
+            'item_code' => $this->input->post('item_code'),
+            'tgl'=>$this->input->post('tgl'),
+            'stok_awal'=>$this->input->post('stok_awal'),
+            'status'=>$this->input->post('status')
+        );
+
+        $res = $this->item->add($data);
         if(!$res){
             $this->session->set_flashdata('Error',$res);
             redirect("admin/gudang/penyesuaian_barang");

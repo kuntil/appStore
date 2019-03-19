@@ -8,6 +8,7 @@ class Transfer_barang extends Admin_Controller {
 
         /* Load :: Common */
         $this->load->model('admin/gudang/TransferBarang_model','item');
+        $this->load->model('admin/gudang/gudang_model','gudang');
         
     }
 
@@ -24,6 +25,8 @@ class Transfer_barang extends Admin_Controller {
 
         /* Breadcrumbs */
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
+        $list = $this->gudang->get_datatables();
+        $this->data['gudang'] = $list;
         $this->data['data']=array();
         $this->template->admin_render('admin/gudang/transfer_barang/index', $this->data);
     }

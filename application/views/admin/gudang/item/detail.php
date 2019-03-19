@@ -150,7 +150,11 @@
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="status" name='status' placeholder="Status">
+            <label>Status </label>
+            <select class="form-control" name='status'>
+                <option value='1'>Aktif</option>
+                <option value='2'>Tidak Aktif</option>
+            </select>
             </div>
         </div>
         <!-- /.box-body -->

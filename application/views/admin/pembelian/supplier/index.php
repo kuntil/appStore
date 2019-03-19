@@ -83,7 +83,11 @@ XDcCCC            <br>
             <br>
             <div class="icheckbox_flat-green">
             <label>
-                <input type="checkbox" class="input-group col-xs-12" >Active
+            <label>Status </label>
+            <select class="form-control" name='status'>
+                <option value='1'>Aktif</option>
+                <option value='2'>Tidak Aktif</option>
+            </select>
             </label>
             </div>
         </div>

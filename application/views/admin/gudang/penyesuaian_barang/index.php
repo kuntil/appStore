@@ -54,7 +54,7 @@
 
                     </div>
                     <div class="box-footer">
-                    <button type="button" data-toggle="modal" data-target="#inputGudangModal" class="btn btn-info">Tambah Barang</button>
+                    <button type="button" data-toggle="modal" data-target="#inputPenyesuaianBarang" class="btn btn-info">Tambah</button>
                     <?php 
                     if($this->session->flashdata('error')!=null){
                         echo $this->session->flashdata('message_name');
@@ -69,30 +69,56 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="inputMerekBarangModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="inputPenyesuaianBarang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Memasukan Data Merek</h4>
+        <h4 class="modal-title" id="myModalLabel">Memasukan Data</h4>
       </div>
       <div class="modal-body">
-      <?php echo form_open('admin/gudang/merek_barang/add'); ?>
+      <?php echo form_open('admin/gudang/penyesuaian_barang/add'); ?>
         <div class="box-body">
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_id" name='merk_id' placeholder="ID Merek">
+            <label>Pilih Gudang </label>
+            <select class="form-control" name='gudang_id'>
+                <?php foreach( $gudang as $row) : ?>
+                <option value="<?php echo $row->gudang_id?>"><?php echo $row->gudang_name?></option>
+            <?php endforeach;?>
+            </select>
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_name" name='merk_name' placeholder="Nama Merek">
+                <label>Pilih Barang </label>
+                <!-- <select class="form-control" name='gudang_id'>
+                    <?php foreach( $item as $row) : ?>
+                    <option value="<?php echo $row->item_code?>"><?php echo $row->item_name?></option>
+                <?php endforeach;?>
+                </select> -->
+                <input type="text" class="form-control" id="searchItem" placeholder="Title" autocomplete="on">
+            </div>
+            <br>
+            <div class="input-group col-xs-12">         
+                <label>Tanggal </label>
+                <div class="input-group date" data-provide="datepicker">
+                    <input type="text" class="form-control" name='tgl' id='datepicker'>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="input-group col-xs-12">
+                <label>Stok Awal </label>              
+                <input type="input" class="form-control" id="stok_awal" name='stok_awal' placeholder="Stok Awal">
             </div>
             <br>
             <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="merk_desc" name='merk_desc' placeholder="Deskripsi">
-            </div>
-            <br>
-            <div class="input-group col-xs-12">              
-                <input type="input" class="form-control" id="status" name='status' placeholder="Status">
+            <label>Status </label>
+            <select class="form-control" name='status'>
+                <option value='1'>Aktif</option>
+                <option value='2'>Tidak Aktif</option>
+            </select>
             </div>
             <br>
         </div>
@@ -114,6 +140,10 @@
 var table;
 var gudang;
 $(document).ready(function() {
+
+    $( "#searchItem" ).autocomplete({
+        source: "<?php echo site_url('admin/gudang/item/get_autocomplete');?>"
+    });
 
     $('#selectGudang').change( function() {
         // gudang = $("#selectGudang").val();
